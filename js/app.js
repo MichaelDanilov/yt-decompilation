@@ -78,15 +78,15 @@ angular
 					} else if (viewValue.match(/^(\d)+$/gi)) {
 					  ctrl.$setValidity('starttime', true);
 						return Number(viewValue.match(/^(\d)+$/gi)[0]);
-					} else if (viewValue.match(/^(\d)+:\d(?:\d)?$/gi)) {
+					} else if (viewValue.match(/^(\d)+(?:[:.])\d(?:\d)?$/gi)) {
 					  var min, sec;
-					  min = Number(viewValue.match(/^(\d)+:/gi)[0].match(/(\d)+/gi)[0]);
+					  min = Number(viewValue.match(/^(\d)+(?:[:.])/gi)[0].match(/(\d)+/gi)[0]);
 					  if (min < 0) {
 					    ctrl.$setValidity('starttime', false);
 							return '0';
 					  } else {
 					    min = min * 60;
-					    sec = Number(viewValue.match(/:\d(?:\d)?/gi)[0].match(/\d(?:\d)?/gi)[0]);
+					    sec = Number(viewValue.match(/(?:[:.])\d(?:\d)?/gi)[0].match(/\d(?:\d)?/gi)[0]);
 					    if (sec > 59 || sec < 0) {
 					      ctrl.$setValidity('starttime', false);
 								return '0';
@@ -115,15 +115,15 @@ angular
 					} else if (viewValue.match(/^(\d)+$/gi)) {
 					  ctrl.$setValidity('endtime', true);
 						return Number(viewValue.match(/^(\d)+$/gi)[0]);
-					} else if (viewValue.match(/^(\d)+:\d(?:\d)?$/gi)) {
+					} else if (viewValue.match(/^(\d)+(?:[:.])\d(?:\d)?$/gi)) {
 					  var min, sec;
-					  min = Number(viewValue.match(/^(\d)+:/gi)[0].match(/(\d)+/gi)[0]);
+					  min = Number(viewValue.match(/^(\d)+(?:[:.])/gi)[0].match(/(\d)+/gi)[0]);
 					  if (min < 0) {
 					    ctrl.$setValidity('endtime', false);
 							return '0';
 					  } else {
 					    min = min * 60;
-					    sec = Number(viewValue.match(/:\d(?:\d)?/gi)[0].match(/\d(?:\d)?/gi)[0]);
+					    sec = Number(viewValue.match(/(?:[:.])\d(?:\d)?/gi)[0].match(/\d(?:\d)?/gi)[0]);
 					    if (sec > 59 || sec < 0) {
 					      ctrl.$setValidity('endtime', false);
 								return '0';
