@@ -15,10 +15,10 @@ Based on:
 
 ## Contribute
 * You can fork this repo.
-* You can send me bugreport or ideas on [Github's issues](./issues) or [email](mailto:michael@danilov.me?subject=YTDecompilation")
+* You can send me bugreport or ideas on [Github's issues](./issues) or [email](mailto:michael@danilov.me?subject=YTDecompilation)
 * Can send me pull request with bugfix, if you can.
 
 ## License
-Copyright © 2014 [Michael Danilov](https://danilov.me/) (<[michael@danilov.me](mailto:michael@danilov.me?subject=YTDecompilation")>)
+Copyright © 2014 [Michael Danilov](https://danilov.me/) (<[michael@danilov.me](mailto:michael@danilov.me?subject=YTDecompilation)>)
 
 [MIT](./LICENSE)
