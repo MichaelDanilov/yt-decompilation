@@ -2,36 +2,40 @@
 <form class="row" role="form" name="getParam" ng-submit="addVideo()" novalidate>
 	<div class="col-md-4">
 		<div class="form-group has-feedback" ng-class="{'has-error': getParam.videoid.$invalid,'has-success': getParam.videoid.$valid}">
-	    <label class="sr-only" for="videoid">YouTube Video ID or link</label>
+			<label class="sr-only" for="videoid">YouTube Video ID or link</label>
 			<input class="form-control" type="text" ng-model="ytdc.videoid" placeholder="YouTube Video ID or link" name="videoid" videoid required>
 			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="getParam.videoid.$valid"></span>
 			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="getParam.videoid.$invalid"></span>
 			<span class="help-block" ng-show="getParam.videoid.$valid">Your YouTube ID: {{ ytdc.videoid }}</span>
-	  </div>
+		</div>
 	</div>
 	<div class="col-md-2">
 		<div class="form-group has-feedback" ng-class="{'has-error': getParam.starttime.$invalid,'has-success': getParam.starttime.$valid}">
-	    <label class="sr-only" for="starttime">Start Time</label>
+			<label class="sr-only" for="starttime">Start Time</label>
 			<input class="form-control" type="text" ng-model="ytdc.starttime" placeholder="Start Time" name="starttime" starttime required>
 			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="getParam.starttime.$valid"></span>
 			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="getParam.starttime.$invalid"></span>
-			<span class="help-block" ng-show="getParam.starttime.$valid">Start Time: {{ ytdc.starttime }}</span>
-	  </div>
+			<span class="help-block" ng-show="getParam.starttime.$valid">Start from
+				<ng-pluralize count="ytdc.starttime" when="{'0': 'beginning.','one': '{} second.', 'other': '{} seconds.'}"></ng-pluralize>
+			</span>
+		</div>
 	</div>
 	<div class="col-md-2">
 		<div class="form-group has-feedback" ng-class="{'has-error': getParam.endtime.$invalid,'has-success': getParam.endtime.$valid}">
-	    <label class="sr-only" for="endtime">End Time</label>
+			<label class="sr-only" for="endtime">End Time</label>
 			<input class="form-control" type="text" ng-model="ytdc.endtime" placeholder="End Time" name="endtime" endtime required>
 			<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="getParam.endtime.$valid"></span>
 			<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="getParam.endtime.$invalid"></span>
-			<span class="help-block" ng-show="getParam.endtime.$valid">End Time: {{ ytdc.endtime }}</span>
-	  </div>
+			<span class="help-block" ng-show="getParam.endtime.$valid">Stop on
+				<ng-pluralize count="ytdc.endtime" when="{'0': '{} second.','one': '{} second.', 'other': '{} seconds.'}"></ng-pluralize>
+			</span>
+		</div>
 	</div>
-  <div class="col-md-2">
+	<div class="col-md-2">
 		<button type="submit" class="btn btn-danger" ng-disabled="getParam.$invalid">Get Link</button>
-  </div>
-  <div class="col-md-12" ng-show="result">
+	</div>
+	<div class="col-md-12" ng-show="result">
 		<h3>Yout link:</h3>
 		<p><code><a href="{{ url }}">This</a></code> or <code>{{ url }}</code> this</p>
-  </div>
+	</div>
 </form>
